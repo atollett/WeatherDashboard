@@ -16,3 +16,5 @@ Includes a 5-Day Forecast below the current weather conditions. Each day for the
   - Icon image (visual representation of weather conditions)
   - Temperature
   - Humidity
+
+![Image of Working Application](weather.PNG)
