@@ -1,4 +1,4 @@
-appID = "8b58730b831d9dfe90f82c5fd73e1a99";
+var appID = "8b58730b831d9dfe90f82c5fd73e1a99";
 var savedLocations = [];
 var currentLoc;
 
