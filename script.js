@@ -1,10 +1,4 @@
-
-
-
-
-//appid=8b58730b831d9dfe90f82c5fd73e1a99
-
-
+appID = "8b58730b831d9dfe90f82c5fd73e1a99";
 var savedLocations = [];
 var currentLoc;
 
@@ -41,7 +35,7 @@ function showPrevious() {
 }
 
 function getCurrent(city) {
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=8b58730b831d9dfe90f82c5fd73e1a99&units=imperial";
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=" + appID + "&units=imperial";
     $.ajax({
         url: queryURL,
         method: "GET",
@@ -84,18 +78,15 @@ function getCurrent(city) {
         cardBody.append($("<p>").attr("class", "card-text").text("Wind Speed: " + response.wind.speed + " MPH"));
 
         //get UV Index
-        var uvURL = "https://api.openweathermap.org/data/2.5/uvi?appid=8b58730b831d9dfe90f82c5fd73e1a99&lat=" + response.coord.lat + "&lon=" + response.coord.lat;
+        var uvURL = "https://api.openweathermap.org/data/2.5/uvi?appid=" + appID + "&lat=" + response.coord.lat + "&lon=" + response.coord.lon;
+        
         $.ajax({
             url: uvURL,
             method: "GET"
         }).then(function (uvresponse) {
-            var uvindex = uvresponse.value;
-            var bgcolor;
-            //FIXME
             var uvdisp = $("<p>").attr("class", "card-text").text("UV Index: ");
             uvdisp.append($("<span>").attr("class", "uvresponse.value").text(uvresponse.value));
             cardBody.append(uvdisp);
-
         });
 
         cardRow.append(textDiv);
@@ -105,7 +96,7 @@ function getCurrent(city) {
 
 function getForecast(city) {
     //get 5 day forecast
-    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?id=" + city + "&APPID=8b58730b831d9dfe90f82c5fd73e1a99&units=imperial";
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?id=" + city + "&APPID=" + appID + "&units=imperial";
     $.ajax({
         url: queryURL,
         method: "GET"
